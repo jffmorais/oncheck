@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nova requisição</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of itens" detail routerLink="/conf-req/{{item.id}}" routerDirection="forward">
+      <ion-avatar slot="start">
+        <img src="assets/img/{{item.imagem}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.desc}}</h2>
+        <p>{{item.numero}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Novo usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img class="logo" src="assets/img/logo.png"></ion-img>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Primeiro nome:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.nome"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Sobrenome:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.sobrenome"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.email"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Senha:</ion-label>
+      <ion-input
+        type="password"
+        class="textBox"
+        [(ngModel)]="senha"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Confirma senha:</ion-label>
+      <ion-input
+        type="password"
+        class="textBox"
+        [(ngModel)]="csenha"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Registro/Matricula:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.registro"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Cargo:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.cargo"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Setor:</ion-label>
+      <ion-input
+        type="text"
+        class="textBox"
+        [(ngModel)]="colab.setor"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button fill="solid" expand="block" color="success" (click)="register()"
+    >Cadastrar</ion-button
+  >
+</ion-content>

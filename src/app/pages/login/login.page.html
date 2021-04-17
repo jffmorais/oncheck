@@ -1,0 +1,24 @@
+<!--<ion-button expand="block" routerLink="/menu/first">Login</ion-button>-->
+
+<ion-content class="background" padding>
+  <div class="espaco"></div>
+  <ion-img class="logo" src="assets/img/logo.png"></ion-img>
+
+  <div>
+    <ion-label position="stacked">Email:</ion-label>
+    <ion-input type="text" class="textBox" [(ngModel)]="email"></ion-input>
+  </div>
+
+  <div>
+    <ion-label position="stacked">Senha:</ion-label>
+    <ion-input type="password" class="textBox" [(ngModel)]="senha"></ion-input>
+  </div>
+
+  <ion-button fill="solid" expand="block" color="success" (click)="login()"
+    >Login</ion-button
+  >
+
+  <ion-button fill="solid" expand="block" color="light" (click)="register()"
+    >Cadastro</ion-button
+  >
+</ion-content>

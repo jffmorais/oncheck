@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaulthref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nova requisição</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <h2>Requerente: {{localData.nome}}&nbsp;{{localData.sobrenome}}</h2>
+      <p>Registro: {{localData.registro}}</p>
+      <p>Data da requisição: {{dataAprox | date: 'dd/MM/yyyy H:mm'}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/img/{{item?.imagem}}" />
+    </ion-avatar>
+    <ion-label>
+      <ion-row>
+        <ion-col>{{item?.desc}}</ion-col>
+        <ion-col
+          ><ion-badge color="{{item?.status_color}}"
+            >{{item?.status}}</ion-badge
+          ></ion-col
+        >
+      </ion-row>
+      <p>Nº {{item?.numero}}</p>
+      <p>{{item?.modelo}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Condições/Observações:</ion-label>
+    <ion-textarea class="textBox" [(ngModel)]="obs"></ion-textarea>
+  </ion-item>
+  <ion-button expand="block" color="primary" (click)="requisita()"
+    >Confirmar</ion-button
+  >
+  <ion-button expand="block" color="danger" (click)="cancela()"
+    >Cancelar</ion-button
+  >
+</ion-content>

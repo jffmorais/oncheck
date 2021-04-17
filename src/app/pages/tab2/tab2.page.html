@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catálogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-searchbar
+        placeholder="pesquisar"
+        showcancelbutton=""
+        (ionInput)="filterItens($event)"
+        (ionClear)="loadItens()"
+      ></ion-searchbar>
+    </ion-item>
+    <ion-item *ngFor="let item of itens">
+      <ion-avatar slot="start">
+        <img src="assets/img/{{item.imagem}}" />
+      </ion-avatar>
+      <ion-label>
+        <ion-row>
+          <ion-col>{{item.desc}}</ion-col>
+          <ion-col
+            ><ion-badge color="{{item.status_color}}"
+              >{{item.status}}</ion-badge
+            ></ion-col
+          >
+        </ion-row>
+        <p>{{item.modelo}}</p>
+        <p>Nº {{item.numero}}</p>
+        <ion-button
+          *ngIf="item.status === 'disponível'"
+          color="primary"
+          expand="block"
+          (click)="requisitar(item.id)"
+          >Requisitar</ion-button
+        >
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Requisições</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+
+    <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+      <ion-fab-button routerLink="/new-req" routerDirection="forward"><ion-icon name="add"></ion-icon></ion-fab-button>
+    </ion-fab>
+    
+    <!--My first tab content
+    <ion-button expand="block" routerLink="/menu/first/tabs/tab1/details" routerDirection="forward">
+      Details Button
+    </ion-button>-->
+
+    <div *ngIf="noData" class="xc">
+      <ion-chip color="medium" text-center>
+        <ion-label>Parece que ainda foi feita nenhuma requisição</ion-label>
+      </ion-chip>
+    </div>
+    <!-- <div class="bloco" [style.background-image]="'url(/assets/img/' + s.capa + ')'" (click)="goToServ(s.cat)" *ngFor="let s of servicos"><h1>{{ s.cat }}</h1></div> -->
+
+    <ion-list>
+      <!-- <ion-item>
+        <ion-input inputmode="search" placeholder="pesquisar"></ion-input><button item-right><ion-icon name="search"></ion-icon></button>
+      </ion-item> -->
+      <ion-item *ngFor="let req of requisicoes">
+        <ion-avatar slot="start">
+          <img src="assets/img/{{req.item_imagem}}">
+        </ion-avatar>
+        <ion-label>
+          <ion-row>
+            <ion-col>{{req.item_desc}}</ion-col>
+            <ion-col><ion-badge color="{{req.status_color}}">{{req.status}}</ion-badge></ion-col>
+          </ion-row>
+          <p text-wrap>{{req.item_modelo}}</p>
+          <p>Nº {{req.item_numero}}</p>
+          <ion-button *ngIf="req.status === 'emprestado'" color="warning" expand="block" (click)="darBaixa(req.id)">Dar baixa</ion-button>
+          <p text-wrap>Requisitado em: {{ req.data_form | date: 'dd/MM/yyyy H:mm' }}</p>
+          <p *ngIf="req.status !== 'emprestado'" text-wrap>Devolvido em: {{ req.data_devolucao_form | date: 'dd/MM/yyyy H:mm' }}</p>
+        </ion-label>
+        
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
